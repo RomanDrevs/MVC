@@ -1,0 +1,16 @@
+<!-- View(представление) метода admin_login контроллера UsersController.
+ В этом файле создана форма логина (поля для ввода login-a и password-a).
+ Форма отправляется по методу "post" на тот же URL= /admin/users/login -->
+<h3>Login</h3>
+<form method="post" action="">
+    <div class="form-group">
+        <label for="login">Login</label>
+        <input type="text" id="login" name="login" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" class="form-control" />
+    </div>
+    <input type="submit" class="btn btn-success" />
+
+</form>

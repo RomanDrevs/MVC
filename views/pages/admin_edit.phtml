@@ -1,0 +1,28 @@
+<!-- HTML форма для редактирования данных страницы.
+Поля с данными в форме, форма отправляется на текущий адрес методом "post". Скрытое field id необходимо для
+идентификации page которую мы редактируем. Далее поочередно видимые fields( будут находиться внутри div блоков). Для
+каждого из полей добавлен елемент label.
+Field №1 - "Alias" of page,field №2 - "Title" of page,field №3 -"Content" of page, field $4 - "is_published"
+check-box(определяет значение поля is_published(отмечен= 1 и page отображается, не отмечен= 0 и page скрывается на сайте
+-->
+<h3>Edit page</h3><br />
+<form method="post" action="">
+    <input type="hidden" name="id" value="<?=$data['page']['id']?>" />
+    <div class="form-group">
+        <label for="alias">Alias</label>
+        <input type="text" id="alias" name="alias" value="<?=$data['page']['alias']?>" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" id="title" name="title" value="<?=$data['page']['title']?>" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="content">Content</label>
+        <textarea name="content" id="content" class="form-control"><?=$data['page']['content']?></textarea>
+    </div>
+    <div class="form-group">
+        <label for="is_published">Publish?</label>
+        <input type="checkbox" id="is_published" name="is_published" <?php if ( $data['page']['is_published'] ) { ?>checked="checked" <?php } ?> />
+    </div>
+    <input type="submit" class="btn btn-success" />
+</form>

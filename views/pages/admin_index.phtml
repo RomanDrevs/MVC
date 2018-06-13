@@ -1,0 +1,21 @@
+<!-- Выводятся список страниц и ссылки на их добавление, редактирование и удаление.
+Мы проходим все страницы с помощью цикла, который поочередно выводит все страницы из списка.
+Методы edit и delete требуют уникальных id-s страниц поэтому в модели Page добавился метод getById-->
+<h3>Pages</h3><br/>
+<table class="table table-striped" style="width: 400px">
+    <?php foreach($data['pages'] as $page_data){ ?>
+        <tr>
+            <td><b><?=$page_data['title']?></b></td> <!-- 1 ячейка - заголовок страницы -->
+            <td align="right"> <!-- 2 ячейка - кнопки для перехода к редактированию или удалению страницы-->
+                <a href="/admin/pages/edit/<?=$page_data['id']?>"><button class="btn btn-sm btn-primary">edit</button></a>
+                <a href="/admin/pages/delete/<?=$page_data['id']?>" onclick="return confirmDelete();"><button class="btn btn-sm btn-warning">delete</button></a>
+            </td>
+        </tr>
+
+    <?php } ?>
+</table>
+<!-- Кнопка для добавления страницы. будет вести на адрес admin/pages/add тоисть на метод admin/add -->
+<br/>
+<div>
+    <a href="/admin/pages/add/"><button class="btn btn-sm btn-success">New Page</button></a>
+</div>
